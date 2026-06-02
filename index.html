@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This professional multi-page ePortfolio showcases academic projects and reflections, designed for students to present their work in a structured, trustworthy format.">
+  <meta name="title" content="E-Portfolio Alessio Heeb">
+  <meta name="robots" content="noindex">
+  <title>E-Portfolio Alessio Heeb</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (v3 stable) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            mono: ['"DM Mono"', 'ui-monospace', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Nav underline animation */
+    .nav-link span {
+      display: block;
+      position: absolute;
+      left: 0.625rem;
+      right: 0.625rem;
+      bottom: -2px;
+      height: 1px;
+      background: #0f172a;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .nav-link:hover span { transform: scaleX(1); }
+    .nav-link:hover { color: #0f172a !important; }
+
+    /* Code blocks */
+    pre {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.875rem;
+      color: #334155;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-family: 'DM Mono', ui-monospace, monospace;
+    }
+
+    /* Nav glassmorphism */
+    nav {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Progress bars */
+    .progress-bar {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #334155;
+      border-radius: 9999px;
+    }
+
+    /* Diagram placeholder styling */
+    .chart-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chart-placeholder svg {
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-slate-700" style="font-family: 'DM Sans', system-ui, sans-serif;">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
+      <a href="#hero" class="flex items-baseline gap-2 group shrink-0">
+        <span class="text-slate-900 text-lg tracking-tight lining-nums font-serif">Modul 375</span>
+        <span class="hidden sm:inline text-sm text-slate-400 italic font-serif">ePortfolio</span>
+      </a>
+      <ul class="hidden md:flex items-center list-none gap-0">
+        <li class="flex items-center">
+          <a href="#einleitung" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">Einleitung<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <a href="#datensatz" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">Datensatz<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <span class="w-px h-4 bg-slate-200 mx-2" aria-hidden="true"></span>
+          <a href="#hz1" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">HZ 1<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <a href="#hz2" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">HZ 2<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <a href="#hz3" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">HZ 3<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <a href="#hz4" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">HZ 4<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <a href="#hz5" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">HZ 5<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <span class="w-px h-4 bg-slate-200 mx-2" aria-hidden="true"></span>
+          <a href="#selbsteinschatzung" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">Selbsteinschätzung<span></span></a>
+        </li>
+        <li class="flex items-center">
+          <a href="#anhang" class="nav-link relative text-sm px-2.5 py-1.5 text-slate-500 transition-colors">Anhang<span></span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="pt-32 pb-24 border-b border-slate-200">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-6">ePortfolio · Modul 375 · EDB1a</p>
+      <h1 class="text-4xl md:text-5xl font-medium leading-tight text-slate-900 font-serif">
+        Schlaf und Schulerfolg — eine Auswertung von 500 Datenpunkten
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+        Im Rahmen des Moduls 375 «Daten auswerten» untersuche ich, wie sich Schlafdauer auf schulische Leistung und Konzentration auswirkt. Grundlage ist eine anonymisierte Befragung mit 500 Lernenden.
+      </p>
+
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm">
+        <div>
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Autor</p>
+          <p class="text-slate-900">Alessio Heeb</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Klasse</p>
+          <p class="text-slate-900">EDB1a</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Lehrperson</p>
+          <p class="text-slate-900">Thomas Kehl</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Jahr</p>
+          <p class="text-slate-900">2026</p>
+        </div>
+      </div>
+
+      <div class="mt-16 grid sm:grid-cols-2 gap-8 pt-10 border-t border-slate-200">
+        <div>
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-4">Kennzahlen</p>
+          <dl class="space-y-3 text-sm">
+            <div class="flex justify-between border-b border-slate-100 pb-2">
+              <dt>Mittlere Schlafdauer</dt>
+              <dd class="text-slate-900">5.1 h</dd>
+            </div>
+            <div class="flex justify-between border-b border-slate-100 pb-2">
+              <dt>Mittlere Note</dt>
+              <dd class="text-slate-900">63.8 Punkte</dd>
+            </div>
+            <div class="flex justify-between border-b border-slate-100 pb-2">
+              <dt>Korrelation Schlaf · Note</dt>
+              <dd class="text-slate-900">r = 0.24</dd>
+            </div>
+            <div class="flex justify-between">
+              <dt>Note bei 7–8 h Schlaf</dt>
+              <dd class="text-slate-900">66.8</dd>
+            </div>
+          </dl>
+        </div>
+        <img src="Diagramm_nummer_1.png" width="412" height="220" alt=""/>
+        <div>
+		  </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Einleitung -->
+  <section id="einleitung" class="py-20 scroll-mt-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Einleitung</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Worum es geht</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed">
+        Dieses ePortfolio zeigt meine Arbeit im Modul 375 «Daten auswerten». Im Zentrum steht die Frage, wie sich die Schlafdauer auf schulische Leistung und Konzentration auswirkt. Als Datengrundlage nutze ich einen anonymisierten Datensatz mit 500 Lernenden und 13 Variablen zu Schlaf, Lerngewohnheiten und Noten.
+      </p>
+      <p class="text-slate-600 leading-relaxed mt-4">
+        Der Aufbau orientiert sich an den fünf Handlungszielen des Moduls: Zuerst begründe ich die Wahl des Datensatzes, anschliessend ordne ich die wichtigsten Variablen einem Skalenniveau zu und berechne passende Lage- und Streumasse. Danach visualisiere ich zentrale Verteilungen und Zusammenhänge und formuliere daraus einfache statistische Schlüsse. Jeder Abschnitt folgt derselben Struktur mit Artefakt, Berechnung, Erklärung und Reflexion, damit die Schritte für die Lesenden gut nachvollziehbar bleiben.
+      </p>
+      <p class="text-slate-600 leading-relaxed mt-4">
+        Ziel dieses ePortfolios ist nicht, die Frage nach „optimalem Schlaf" endgültig zu beantworten. Wichtiger ist für mich, den eigenen Umgang mit Daten zu üben: Was lässt sich aus 500 Beobachtungen sinnvoll ableiten – und wo stossen die Ergebnisse an ihre Grenzen?
+      </p>
+    </div>
+  </section>
+
+  <!-- Datensatz -->
+  <section id="datensatz" class="py-20 scroll-mt-16 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Datensatz</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Grundlage der Auswertung</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-6">
+        Verwendet wird der öffentliche Datensatz <em>Student Study Habits</em> rund um Schlaf, Lerngewohnheiten, Anwesenheit und Notendurchschnitt.
+      </p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-8">
+        <a href="https://www.kaggle.com/datasets/sumedh1507/student-study-habits-dataset" target="_blank" rel="noopener noreferrer" class="text-slate-900 underline underline-offset-2 hover:text-slate-600">
+          Quelle auf Kaggle ansehen
+        </a>
+      </div>
+
+      <table class="w-full bg-white border border-slate-200 rounded-md overflow-hidden">
+        <thead>
+          <tr>
+            <th class="text-left text-xs uppercase tracking-wider text-slate-500 font-medium px-4 py-3 border-b border-slate-200">Variable</th>
+            <th class="text-left text-xs uppercase tracking-wider text-slate-500 font-medium px-4 py-3 border-b border-slate-200">Beispiel</th>
+            <th class="text-left text-xs uppercase tracking-wider text-slate-500 font-medium px-4 py-3 border-b border-slate-200">Skalenniveau</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">study_hours_per_week</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0.527</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">metrisch</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">sleep_hours_per_day</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0.685</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">metrisch</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">attendance_percentage</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0.993</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">metrisch</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">assignments_completed</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0.222</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">metrisch</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">final_grade</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">71.10</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">metrisch</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">participation_level_Low</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">nominal (One-Hot)</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">participation_level_Medium</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">nominal (One-Hot)</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">internet_access_Yes</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">nominal</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">parental_education_High School</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">ordinal (One-Hot)</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">parental_education_Master's</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">ordinal (One-Hot)</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">parental_education_PhD</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">ordinal (One-Hot)</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700"><span class="text-slate-900">extracurricular_Yes</span></td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">nominal</td></tr>
+          <tr><td class="px-4 py-3 text-sm text-slate-700"><span class="text-slate-900">part_time_job_Yes</span></td><td class="px-4 py-3 text-sm text-slate-700">0 / 1</td><td class="px-4 py-3 text-sm text-slate-700">nominal</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- HZ 1 -->
+  <section id="hz1" class="py-20 scroll-mt-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Handlungsziel 1</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Datenauswahl</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-8">Eine geeignete Datenquelle für die Fragestellung auswählen, beurteilen und beschreiben.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Artefakt</h3>
+          <p class="text-slate-600 leading-relaxed">Auswahltabelle mit Beurteilungskriterien (Relevanz, Aktualität, Vollständigkeit, Datenschutz, Skalenvielfalt) für den Datensatz <code class="bg-slate-100 px-1 rounded text-sm">schlaf_leistung_500.csv</code>.</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Nachweis</h3>
+          <p class="text-slate-600 leading-relaxed">Der Datensatz erfüllt alle gesetzten Kriterien: 500 vollständige Zeilen, drei Skalenniveaus (nominal, ordinal, metrisch), anonymisierte IDs und eine Erhebung aus dem laufenden Schuljahr.</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Erklärung</h3>
+          <p class="text-slate-600 leading-relaxed">500 Datenpunkte sind genug, um auch kleinere Effekte sichtbar zu machen, gleichzeitig aber noch handhabbar. Die Mischung der Skalenniveaus erlaubt sowohl deskriptive als auch vergleichende Auswertungen.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-5 py-1 my-6">
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Reflexion</p>
+          <p class="text-slate-700 italic leading-relaxed">Mein erster Datensatz stammte unbesehen aus dem Internet. Erst beim Versuch, ihn zu beschreiben, fiel mir auf, dass ich weder Quelle noch Erhebungsmethode kannte. Seitdem habe ich begonnen mich mehr zu hinterfragen von wo die Daten kommen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HZ 2 -->
+  <section id="hz2" class="py-20 scroll-mt-16 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Handlungsziel 2</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Skalenniveaus und Lokalisationsparameter</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-8">Daten dem korrekten Skalenniveau zuordnen und passende Lagemasse berechnen und interpretieren.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Artefakt</h3>
+          <p class="text-slate-600 leading-relaxed">Berechnung von Mittelwert, Median und Modus für die Variable <code class="bg-slate-100 px-1 rounded text-sm">schlaf_h</code> (Schlafdauer in Stunden).</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Berechnung</h3>
+          <pre>Mittelwert: x̄ = Σ xᵢ / n = 2554.0 / 500 = 5.11 h
+Median:     5.0 h (Wert an Position 250/251 nach Sortierung)
+Modus:      5.0 h (88 von 500 Lernenden)</pre>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Erklärung</h3>
+          <p class="text-slate-600 leading-relaxed">Mittelwert, Median und Modus liegen sehr nahe beieinander. Das spricht für eine weitgehend symmetrische, eingipflige Verteilung.</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Warum der Median?</h3>
+          <p class="text-slate-600 leading-relaxed">Als zentrales Lagemass berichte ich bewusst den <strong>Median (5.0 h)</strong> statt des Mittelwerts. Die Variable <code class="bg-slate-100 px-1 rounded text-sm">schlaf_h</code> beruht auf Selbstangaben von Lernenden, die typischerweise auf volle oder halbe Stunden gerundet werden — einzelne extreme Werte (z. B. 3 h oder 9 h) ziehen den Mittelwert stärker, während der Median robust bleibt. Der Modus (5.0 h, 88×) eignet sich hier nur eingeschränkt, weil er bei metrischen Daten lediglich den häufigsten Rundungswert abbildet und keine Aussage über die Mitte der Verteilung erlaubt.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-5 py-1 my-6">
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Reflexion</p>
+          <p class="text-slate-700 italic leading-relaxed">Beim Geschlecht (nominal) habe ich aus Gewohnheit fast einen Mittelwert berechnet. Der Fehler hat mir mehr beigebracht als jede Theoriestunde: Skalenniveau ist nicht Formalismus, sondern bestimmt, was überhaupt sinnvoll ist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HZ 3 -->
+  <section id="hz3" class="py-20 scroll-mt-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Handlungsziel 3</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Dispersionsparameter und Ausreisser</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-8">Streuung und Ausreisser einer Datenreihe berechnen, beurteilen und kommunizieren.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Artefakt</h3>
+          <p class="text-slate-600 leading-relaxed">Streumasse für die Variable <code class="bg-slate-100 px-1 rounded text-sm">note_punkte</code> mit Ausreisseranalyse nach Tukey (1.5 · IQR).</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Berechnung</h3>
+          <pre>Mittelwert:           x̄ = 63.8
+Standardabweichung:   s ≈ 11.7
+Varianz:              s² ≈ 137
+Q1 = 56 · Q3 = 72 → IQR = 16
+Ausreissergrenzen:    Q1 − 1.5·IQR = 32   |   Q3 + 1.5·IQR = 96
+→ 7 von 500 Werten unterhalb von 32 (≈ 1.4 %)</pre>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Erklärung</h3>
+          <p class="text-slate-600 leading-relaxed">Die Standardabweichung von rund 12 Punkten zeigt eine typische Streuung um den Klassendurchschnitt. Die wenigen tiefen Werte werden beibehalten, da sie inhaltlich plausibel sind und keinen technischen Fehler darstellen.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-5 py-1 my-6">
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Reflexion</p>
+          <p class="text-slate-700 italic leading-relaxed">Streumasse waren für mich anfangs abstrakt. Jetzt verstehe ich: Zwei Klassen können denselben Mittelwert haben und trotzdem völlig unterschiedlich aussehen. Ohne Streumass weiss man eigentlich nichts über eine Verteilung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HZ 4 -->
+  <section id="hz4" class="py-20 scroll-mt-16 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Handlungsziel 4</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Datenvisualisierung</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-8">Daten zielgruppengerecht und korrekt visualisieren.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Artefakt</h3>
+          <p class="text-slate-600 leading-relaxed">Vier Diagramme, die den Datensatz aus unterschiedlichen Blickwinkeln zeigen — jedes beantwortet eine konkrete Frage.</p>
+        </div>
+
+        <!-- Diagram grid -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <!-- Diagramm 1: Histogramm ohne Achsenbeschriftung (Diagramm_nummer_1) -->
+          <div class="border border-slate-200 rounded-md p-3 h-64 bg-white overflow-hidden flex flex-col"> <img src="Diagramm_nummer_1.png" alt="Schlafdauer Häufigkeitsverteilung" class="flex-1 w-full object-contain">
+          </div>
+          <!-- Diagramm 2: Balken Ø Note pro Schlafgruppe -->
+          <div class="border border-slate-200 rounded-md p-3 h-64 bg-white overflow-hidden flex flex-col">
+            <img src="Diagramm_nummer_3.png" width="375" height="265" alt=""/>
+            <p class="text-xs text-slate-400 mb-2">&nbsp;</p>
+</div>
+          <!-- Diagramm 3: Liniendiagramm Trend -->
+          
+          <div class="border border-slate-200 rounded-md p-3 h-64 bg-white overflow-hidden flex flex-col"> <img src="../E-Portfolio/Diagramm_nummer_4.png" alt=""/><img src="../E-Portfolio/Diagramm_nummer_4.png" alt=""/><img src="Diagramm_nummer_5.png" width="375" height="274" alt=""/>
+            <p class="text-xs text-slate-400 mb-2">&nbsp;</p>
+          </div>
+          <div class="border border-slate-200 rounded-md p-3 h-64 bg-white overflow-hidden flex flex-col">
+            <img src="../E-Portfolio/Diagramm_nummer_5.png" width="375" height="274" alt=""/><img src="Diagramm_nummer_5.png" width="375" height="274" alt=""/>
+            <p class="text-xs text-slate-400 mb-2">&nbsp;</p>
+</div>
+          <!-- Diagramm 5: Doughnut Schlafgruppen -->        </div>
+
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Erklärung</h3>
+          <p class="text-slate-600 leading-relaxed">Histogramm zeigt die Form der Schlafverteilung, das Balkendiagramm vergleicht Notendurchschnitte zwischen Schlafgruppen, das Liniendiagramm verdeutlicht den Trend, das Doughnut die Anteile. Jeder Diagrammtyp passt zur Frage, die er beantwortet.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-5 py-1 my-6">
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Reflexion</p>
+          <p class="text-slate-700 italic leading-relaxed">Mein erster Entwurf hatte sechs bunte Diagramme auf einer Seite. Das Reduzieren auf «eine Frage pro Diagramm» war meine eigentliche Lernkurve in HZ 4.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HZ 5 -->
+  <section id="hz5" class="py-20 scroll-mt-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Handlungsziel 5</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Statistische Analyse</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-8">Aus den ausgewerteten Daten begründete Schlüsse ziehen — und ihre Grenzen offenlegen.</p>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Artefakt</h3>
+          <p class="text-slate-600 leading-relaxed">Korrelationsanalyse zwischen Schlafdauer und Notendurchschnitt, ergänzt um einen Gruppenvergleich.</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Berechnung</h3>
+          <pre>Pearson-Korrelation r ≈ +0.24  (schwach positiv)
+Bestimmtheitsmass   r² ≈ 0.06   (≈ 6 % der Varianz erklärt)
+
+Ø Note bei &lt; 5 h Schlaf:   55.4
+Ø Note bei 7 – 8 h Schlaf: 66.8
+Differenz:                +11.4 Punkte</pre>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Erklärung</h3>
+          <p class="text-slate-600 leading-relaxed">Es besteht ein schwacher, aber konsistenter Zusammenhang zwischen Schlafdauer und Note. Schlaf erklärt rund 6 % der Notenvarianz; weitere Einflussfaktoren wie Lernzeit, Bildschirmzeit oder Konzentration spielen ebenfalls eine Rolle.</p>
+        </div>
+        <div class="border-l-2 border-slate-300 pl-5 py-1 my-6">
+          <p class="text-xs uppercase tracking-[0.15em] text-slate-400 mb-1">Reflexion</p>
+          <p class="text-slate-700 italic leading-relaxed">Korrelation ist nicht Kausalität — eine Lektion, die ich vorher kannte, aber jetzt verstehe. r = 0.24 bedeutet nicht «mehr Schlaf macht bessere Noten», sondern nur, dass beides leicht zusammen variiert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selbsteinschätzung -->
+  <section id="selbsteinschatzung" class="py-20 scroll-mt-16 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Selbsteinschätzung</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Eigene Beurteilung</h2>
+      </header>
+      <p class="text-slate-600 leading-relaxed mb-10">Eine ehrliche Einordnung meiner Kompetenzen entlang der fünf Handlungsziele.</p>
+
+      <div class="space-y-4 mb-12">
+        <div>
+          <div class="flex justify-between mb-1.5 text-sm">
+            <span class="text-slate-700">Datenauswahl</span>
+            <span class="text-slate-500">85 %</span>
+          </div>
+          <div class="progress-bar"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1.5 text-sm">
+            <span class="text-slate-700">Skalenniveaus</span>
+            <span class="text-slate-500">80 %</span>
+          </div>
+          <div class="progress-bar"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1.5 text-sm">
+            <span class="text-slate-700">Dispersionsparameter</span>
+            <span class="text-slate-500">75 %</span>
+          </div>
+          <div class="progress-bar"><div class="progress-bar-fill" style="width: 75%;"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1.5 text-sm">
+            <span class="text-slate-700">Visualisierung</span>
+            <span class="text-slate-500">90 %</span>
+          </div>
+          <div class="progress-bar"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1.5 text-sm">
+            <span class="text-slate-700">Statistik</span>
+            <span class="text-slate-500">78 %</span>
+          </div>
+          <div class="progress-bar"><div class="progress-bar-fill" style="width: 78%;"></div></div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Was ich gelernt habe</h3>
+          <p class="text-slate-600 leading-relaxed">Datenauswertung ist ein Prozess: von der Frage über die Auswahl, die saubere Berechnung bis zur ehrlichen Kommunikation. Statistik ohne Kontext kann irreführen, gerade wenn man die eigenen Resultate plausibel findet.</p>
+        </div>
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Was ich nächstes Mal anders mache</h3>
+          <ul class="mt-2 space-y-2 list-disc list-inside marker:text-slate-400 text-slate-600">
+            <li>Vor der Erhebung ein kurzes Datenkonzept schreiben.</li>
+            <li>Berechnungen doppelt prüfen — von Hand und mit Tabellenkalkulation.</li>
+            <li>Diagramme reduzieren statt schmücken.</li>
+            <li>Bei jeder Aussage die Stichprobengrösse mitnennen.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Anhang -->
+  <section id="anhang" class="py-20 scroll-mt-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <header class="mb-10">
+        <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-3">Anhang</p>
+        <h2 class="text-3xl text-slate-900 font-medium font-serif">Quellen und Hilfsmittel</h2>
+      </header>
+
+      <div class="space-y-10">
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Datensatz</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Öffentlicher Kaggle-Datensatz <em>Student Study Habits</em> von Sumedh1507.
+          </p>
+          <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm mt-3">
+            <a href="https://www.kaggle.com/datasets/sumedh1507/student-study-habits-dataset" target="_blank" rel="noopener noreferrer" class="text-slate-900 underline underline-offset-2 hover:text-slate-600">
+              Quelle auf Kaggle ansehen
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Eingesetzte Hilfsmittel</h3>
+          <table class="w-full mt-3 border border-slate-200 rounded-md overflow-hidden">
+            <thead>
+              <tr>
+                <th class="text-left text-xs uppercase tracking-wider text-slate-500 font-medium px-4 py-3 border-b border-slate-200">Werkzeug</th>
+                <th class="text-left text-xs uppercase tracking-wider text-slate-500 font-medium px-4 py-3 border-b border-slate-200">Verwendungszweck</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">Tabellenkalkulation</td>
+                <td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">Berechnung der Lage- und Streumasse</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">Chart.js</td>
+                <td class="px-4 py-3 border-b border-slate-100 text-sm text-slate-700">Visualisierungen in HZ 4</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-sm text-slate-700">KI-Assistent (Claude)</td>
+                <td class="px-4 py-3 text-sm text-slate-700">Formulierungs-Hilfe und Plausibilitätscheck der Berechnungen</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3 class="text-lg text-slate-900 font-medium mb-2 font-serif">Selbstständigkeitserklärung</h3>
+          <div class="mt-3">
+            <img src="Unterzeichnung.png" width="840" height="331" alt=""/>
+            <p class="text-slate-400 text-sm italic" style="display:none;">
+              (Bild der Selbstständigkeitserklärung — Datei <code>Screenshot_2026-05-12_175239_fc28ad5d.png</code> im gleichen Ordner ablegen)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 py-8">
+    <div class="max-w-3xl mx-auto px-6 text-center text-xs text-slate-400">
+      Alessio Heeb · EDB1a · Modul 375 · Lehrperson Thomas Kehl · 2026
+    </div>
+  </footer>
+
+</body>
+</html>
